@@ -10,6 +10,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+
 import com.devsuperior.dscatalog.dto.CategoryDTO;
 import com.devsuperior.dscatalog.dto.ProductDTO;
 import com.devsuperior.dscatalog.entities.Category;
@@ -91,7 +92,7 @@ public class ProductService {
 		
 		entity.getCategories().clear();
 		for (CategoryDTO catDto : dto.getCategories()) {
-			Category category = categoryRepository.getOne(catDto.getId());
+			Category category = categoryRepository.getReferenceById(catDto.getId());
 			entity.getCategories().add(category);
 			
 			
